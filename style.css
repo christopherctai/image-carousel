@@ -2,3 +2,17 @@
     padding: 0;
     margin: 0;
 }
+
+.picture-frame {
+    width: 100vw; 
+}
+
+.pictures {
+    width: 400vw;
+    display: flex;
+}
+
+.carousel-picture {
+    height: 100vh; 
+    width: 100vw;
+}

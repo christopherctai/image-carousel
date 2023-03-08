@@ -1,0 +1,6 @@
+Image carousel! What are the requirements/parameters: 
+
+-arrows on each side to advance image forward or backwards 
+-auto move the carousel forward after 5 seconds 
+-navigation circles at the bottom telling you where you are 
+-navigation buttons should be clickable to go to that picture
