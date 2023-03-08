@@ -5,17 +5,13 @@ const leftArrow = document.querySelector('#carousel-left');
 const rightArrow = document.querySelector('#carousel-right');
 const navCircles = document.querySelectorAll('.nav-circle'); 
 
-console.log(pictures);
-console.log(pictures.style.marginLeft); 
-
 
 function goToNextImage() {
-
-
+    pictures.style.left = pictures.offsetLeft + -100 + 'vw';
 }
 
 function goToPreviousImage() {
-    
+
 }
 
 leftArrow.addEventListener('click', () => {
