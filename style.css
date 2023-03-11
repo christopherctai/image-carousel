@@ -3,6 +3,9 @@
     margin: 0;
 }
 
+body {
+}
+
 #carousel-left, 
 #carousel-right {
     position: absolute; 
@@ -24,13 +27,15 @@
 
 .picture-frame {
     position: relative; 
-    width: 100vw; 
+
     overflow: hidden; 
+
+
 }
 
 .pictures {
     position: relative; 
-    width: 400vw;
+    width: 400vw; 
     display: flex;
 
     transition: all 0.5s;

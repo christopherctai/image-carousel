@@ -7,24 +7,24 @@ const navCircles = document.querySelectorAll('.nav-circle');
 
 let currentSlide = 0;
 
-function goToNextImage() {
+function goToNextSlide() {
     if (currentSlide === 3) {
         pictures.style.transform = `translateX(0)`
         currentSlide = 0; 
     } else {
-        pictures.style.transform = `translateX(-${25 + (currentSlide * 25)}%)`
         currentSlide++;
+        updateSlide();
     }
     updateNavCircle();
 }
 
-function goToPreviousImage() {
+function goToPreviousSlide() {
     if (currentSlide === 0) {
         pictures.style.transform = `translateX(-75%)`;
         currentSlide = 3;
     } else {
-        pictures.style.transform = `translateX(${25 + (currentSlide * -25)}%)`
         currentSlide--;
+        updateSlide();
     } 
     updateNavCircle();
 }
@@ -36,11 +36,24 @@ function updateNavCircle() {
     navCircles[currentSlide].classList.add('selected');
 }
 
+function updateSlide() {
+    pictures.style.transform = `translateX(${(currentSlide * -25)}%)`;
+}
+
+navCircles.forEach((circle) => {
+    circle.addEventListener('click', () => {
+        currentSlide = circle.id;
+        pictures.style.transform = `translateX(${(currentSlide * -25) + 25})`;
+        updateSlide();
+        updateNavCircle();
+    })
+})
+
 leftArrow.addEventListener('click', () => {
-    goToPreviousImage();
+    goToPreviousSlide();
 })
 
 rightArrow.addEventListener('click', () => {
-    goToNextImage(); 
+    goToNextSlide(); 
 })
 
