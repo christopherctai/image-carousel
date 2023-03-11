@@ -1,6 +1,4 @@
-// Get the images 
-const images = document.querySelectorAll('.carousel-picture');
-let pictures = document.querySelector('.pictures');
+const pictures = document.querySelector('.pictures');
 const leftArrow = document.querySelector('#carousel-left');
 const rightArrow = document.querySelector('#carousel-right');
 const navCircles = document.querySelectorAll('.nav-circle'); 
@@ -42,9 +40,8 @@ function updateSlide() {
 
 navCircles.forEach((circle) => {
     circle.addEventListener('click', () => {
-        currentSlide = circle.id;
-        pictures.style.transform = `translateX(${(currentSlide * -25) + 25})`;
-        updateSlide();
+        currentSlide = Number(circle.id);
+        updateSlide(); 
         updateNavCircle();
     })
 })
