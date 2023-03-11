@@ -5,12 +5,26 @@ const leftArrow = document.querySelector('#carousel-left');
 const rightArrow = document.querySelector('#carousel-right');
 const navCircles = document.querySelectorAll('.nav-circle'); 
 
+let currentSlide = 0;
 
 function goToNextImage() {
-    pictures.style.left = pictures.offsetLeft + -100 + 'vw';
+    if (currentSlide === 3) {
+        pictures.style.transform = `translateX(0)`
+        currentSlide = 0; 
+    } else {
+        pictures.style.transform = `translateX(-${25 + (currentSlide * 25)}%)`
+        currentSlide++;
+    }
 }
 
 function goToPreviousImage() {
+    if (currentSlide === 0) {
+        pictures.style.transform = `translateX(-75%)`;
+        currentSlide = 3;
+    } else {
+        pictures.style.transform = `translateX(${25 + (currentSlide * -25)}%)`
+        currentSlide--;
+    } 
 
 }
 
@@ -21,25 +35,3 @@ leftArrow.addEventListener('click', () => {
 rightArrow.addEventListener('click', () => {
     goToNextImage(); 
 })
-
-function getStyle(image) {
-    if (image.id === '1') {
-        return '0vw';
-    } else if (image.id === '2') {
-        return '-100vw';
-    } else if (image.id === '3') {
-        return '-200vw';
-    } else if (image.id === '4') {
-        return '-300vw';
-    }
-}
-
-function changeImage(image) {
-    pictures.style.marginLeft = `${getStyle(image)}`;
-}
-
-/* 
-
-
-
-*/
