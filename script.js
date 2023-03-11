@@ -2,6 +2,7 @@ const pictures = document.querySelector('.pictures');
 const leftArrow = document.querySelector('#carousel-left');
 const rightArrow = document.querySelector('#carousel-right');
 const navCircles = document.querySelectorAll('.nav-circle'); 
+const timer = setInterval(goToNextSlide, 5000);
 
 let currentSlide = 0;
 
