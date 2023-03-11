@@ -15,6 +15,7 @@ function goToNextImage() {
         pictures.style.transform = `translateX(-${25 + (currentSlide * 25)}%)`
         currentSlide++;
     }
+    updateNavCircle();
 }
 
 function goToPreviousImage() {
@@ -25,7 +26,14 @@ function goToPreviousImage() {
         pictures.style.transform = `translateX(${25 + (currentSlide * -25)}%)`
         currentSlide--;
     } 
+    updateNavCircle();
+}
 
+function updateNavCircle() {
+    navCircles.forEach((circle) => {
+        circle.classList.remove('selected');
+    })
+    navCircles[currentSlide].classList.add('selected');
 }
 
 leftArrow.addEventListener('click', () => {
@@ -35,3 +43,4 @@ leftArrow.addEventListener('click', () => {
 rightArrow.addEventListener('click', () => {
     goToNextImage(); 
 })
+
